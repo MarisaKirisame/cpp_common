@@ -4,7 +4,7 @@
 #include <boost/any.hpp>
 #include <typeindex>
 #include <memory>
-namespace misc
+namespace common
 {
     template< typename T >
     struct fix_struct

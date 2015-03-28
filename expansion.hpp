@@ -1,7 +1,7 @@
 #ifndef EXPANSION_HPP
 #define EXPANSION_HPP
 #include "can_call.hpp"
-namespace misc
+namespace common
 {
     template< typename T1, typename T2 >
     struct expansion

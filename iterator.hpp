@@ -1,7 +1,7 @@
 #ifndef ITERATOR_HPP
 #define ITERATOR_HPP
 #include <iterator>
-namespace misc
+namespace common
 {
     template< typename IT >
     struct range_container_proxy

@@ -1,7 +1,7 @@
 #ifndef CAN_CALL_HPP
 #define CAN_CALL_HPP
 #include <boost/mpl/bool.hpp>
-namespace misc
+namespace common
 {
     template< typename T > struct PrintType;
     template< typename  T > T FakeType( );

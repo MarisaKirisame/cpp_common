@@ -1,7 +1,7 @@
 #ifndef VALUE_LESS
 #define VALUE_LESS
 #include <memory>
-namespace misc
+namespace common
 {
     template< typename t >
     struct value_less;

@@ -2,7 +2,7 @@
 #define RESTRICTION_HPP
 #include "can_call.hpp"
 #include "expansion.hpp"
-namespace misc
+namespace common
 {
     struct non_returnable
     {

@@ -68,17 +68,17 @@ namespace common
     }
 }
 template< typename IT >
-struct std::iterator_traits< misc::iterator_iterator< IT > >
+struct std::iterator_traits< common::iterator_iterator< IT > >
 {
     using iterator_category = std::forward_iterator_tag;
     using reference =
-        typename std::iterator_traits< typename misc::iterator_iterator< IT >::IIT >::reference;
+        typename std::iterator_traits< typename common::iterator_iterator< IT >::IIT >::reference;
     using pointer =
-        typename std::iterator_traits< typename misc::iterator_iterator< IT >::IIT >::pointer;
+        typename std::iterator_traits< typename common::iterator_iterator< IT >::IIT >::pointer;
     using value_type =
-        typename std::iterator_traits< typename misc::iterator_iterator< IT >::IIT >::value_type;
+        typename std::iterator_traits< typename common::iterator_iterator< IT >::IIT >::value_type;
 };
 
 template< typename IT >
-struct std::iterator_traits< misc::range_container_proxy< IT > > : std::iterator_traits< IT > { };
+struct std::iterator_traits< common::range_container_proxy< IT > > : std::iterator_traits< IT > { };
 #endif // ITERATOR_HPP

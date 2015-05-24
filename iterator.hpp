@@ -1,6 +1,7 @@
 #ifndef ITERATOR_HPP
 #define ITERATOR_HPP
 #include <iterator>
+#include <memory>
 namespace common
 {
     template< typename IT >
@@ -66,6 +67,32 @@ namespace common
         using ret_type = iterator_iterator< T >;
         return std::make_pair( ret_type( b, e ), ret_type( e, e ) );
     }
+
+    template< typename T >
+    struct function_output_iterator : std::iterator< std::output_iterator_tag, T >
+    {
+        explicit function_output_iterator( ) { }
+        explicit function_output_iterator( const T & f ) : f( std::shared_ptr< T >( new T( f ) ) ) {}
+        struct proxy
+        {
+            proxy( std::shared_ptr< T > & f ) : f( f ) { }
+            template< typename V >
+            proxy & operator = ( const V & value )
+            {
+                (*f)(value);
+                return *this;
+            }
+            const std::shared_ptr< T > & f;
+        };
+        proxy operator*( ) { return proxy( f ); }
+        function_output_iterator & operator ++ ( ) { return *this; }
+        function_output_iterator & operator ++ (int) { return *this; }
+        function_output_iterator & operator = ( const function_output_iterator & p ) { f = p.f; return * this; }
+        std::shared_ptr< T > f;
+    };
+    template< typename T >
+    function_output_iterator< T > make_function_output_iterator( const T & f = T( ) )
+    { return function_output_iterator< T >( f ); }
 }
 template< typename IT >
 struct std::iterator_traits< common::iterator_iterator< IT > >

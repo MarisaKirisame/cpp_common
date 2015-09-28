@@ -15,7 +15,7 @@ namespace common
     struct restriction_helper
     {
         template< typename ... ARG, typename = std::enable_if_t< can_call< T, ARG ... >::value > >
-        non_returnable operator ( )( const ARG & ... ) const = delete;
+        non_returnable operator ( )( ARG && ... ) const = delete;
     };
 
     template< typename T1, typename T2 >

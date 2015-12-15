@@ -11,11 +11,11 @@ namespace common
     {
         T t;
         template< typename ... ARG >
-        auto operator ( )( const ARG & ... arg ) const
-        { return t( * this, arg ... ); }
+        auto operator ( )( ARG && ... arg ) const
+        { return t( * this, std::forward< ARG >( arg ) ... ); }
         template< typename ... ARG >
-        auto operator ( )( const ARG & ... arg )
-        { return t( * this, arg ... ); }
+        auto operator ( )( ARG && ... arg )
+        { return t( * this, std::forward< ARG >( arg ) ... ); }
     };
 
     template< typename T >

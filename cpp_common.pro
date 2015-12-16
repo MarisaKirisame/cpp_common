@@ -7,7 +7,6 @@ SOURCES += main.cpp
 
 HEADERS += \
     can_call.hpp \
-    combinator.hpp \
     expansion.hpp \
     iterator.hpp \
     restriction.hpp \

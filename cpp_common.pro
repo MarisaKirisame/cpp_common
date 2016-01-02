@@ -12,5 +12,6 @@ HEADERS += \
     restriction.hpp \
     value_less.hpp \
     scope.hpp \
-    named_parameter.hpp
+    named_parameter.hpp \
+    misc.hpp
 QMKAE_CXXFLAGS += -std=c++1z
